@@ -1,0 +1,39 @@
+@media (max-aspect-ratio: 3/4) {
+  .create-container {
+    display: flex;
+    flex-direction: column;
+    padding: 4vw;
+    gap: 4vw;
+    min-height: 100vh;
+  }
+
+  .create-builder {
+    margin-bottom: 6vw;
+  }
+
+  .create-preview {
+    background: #f9f9f9;
+    padding: 4vw;
+    border-radius: 2vw;
+  }
+
+  .add-btn,
+  .submit-btn {
+    margin-top: 4vw;
+    padding: 3vw 0;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 2vw;
+    font-size: 4vw;
+  }
+
+  .mcq-options input {
+    margin-top: 3vw;
+    width: 100%;
+    padding: 2.5vw;
+    font-size: 4vw;
+    border-radius: 1.5vw;
+    border: 0.4vw solid #ccc;
+  }
+}

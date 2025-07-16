@@ -1,0 +1,35 @@
+@media (min-aspect-ratio: 4/3) {
+  .form-detail-container {
+    padding: 4vh 5vw;
+  }
+
+  .summary-section,
+  .responses-section {
+    margin-top: 4vh;
+  }
+
+  .summary-card,
+  .response-card {
+    background: #ffffff;
+    padding: 3vh 3vw;
+    border: 0.2vh solid #ddd;
+    margin-bottom: 3vh;
+    border-radius: 1.2vh;
+  }
+
+  .summary-card ul,
+  .response-card ul {
+    margin-top: 1.5vh;
+    padding-left: 2vw;
+  }
+}
+
+.csv-btn {
+  margin-bottom: 1rem;
+  padding: 10px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

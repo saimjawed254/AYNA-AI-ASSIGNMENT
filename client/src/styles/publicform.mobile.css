@@ -1,0 +1,29 @@
+@media (max-aspect-ratio: 3/4) {
+  .public-form-container {
+    padding: 5vw;
+  }
+
+  .form-question {
+    margin-bottom: 6vw;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 3.5vw;
+    margin-top: 2vw;
+    font-size: 4vw;
+    border: 0.4vw solid #ccc;
+    border-radius: 1.5vw;
+  }
+
+  .submit-btn {
+    padding: 4vw;
+    background: green;
+    color: white;
+    border: none;
+    width: 100%;
+    border-radius: 2vw;
+    font-size: 4vw;
+  }
+}

@@ -1,0 +1,22 @@
+@media (min-aspect-ratio: 4/3) {
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #e6f7ff;
+  }
+
+  .login-box {
+    width: 30vw; /* relative to viewport width */
+    max-width: 40rem; /* optional fallback */
+    padding: 4vh 3vw; /* vertical and horizontal padding */
+    border-radius: 1vh;
+    box-shadow: 0 0 1vh rgba(0, 0, 0, 0.1);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+  }
+}

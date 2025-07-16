@@ -1,0 +1,49 @@
+@media (min-aspect-ratio: 4/3) {
+  .create-container {
+    display: flex;
+    padding: 4vh 4vw;
+    gap: 4vw;
+  }
+
+  .create-builder {
+    flex: 1;
+  }
+
+  .create-preview {
+    flex: 1;
+    background: #f1f1f1;
+    padding: 3vh 3vw;
+    border-radius: 1.5vh;
+    height: fit-content;
+    position: sticky;
+    top: 5vh;
+  }
+
+  .question-builder {
+    margin-top: 2vh;
+    border-left: 0.6vw solid #ccc;
+    padding-left: 2vw;
+  }
+
+  .add-btn,
+  .submit-btn {
+    display: inline-block;
+    margin-top: 2vh;
+    padding: 1.8vh 2.5vw;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 1vh;
+    font-size: 1.2vw;
+  }
+
+  .mcq-options input {
+    display: block;
+    margin-bottom: 1.5vh;
+    width: 100%;
+    padding: 1.2vh;
+    font-size: 1vw;
+    border: 0.3vh solid #ccc;
+    border-radius: 1vh;
+  }
+}

@@ -5,6 +5,7 @@ import cors from 'cors';
 
 import authRoutes from './routes/auth.routes.js';
 import formRoutes from './routes/form.routes.js';
+import responseRoutes from "./routes/response.routes.js";
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/forms', formRoutes);
+app.use("/api/responses", responseRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
