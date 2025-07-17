@@ -103,6 +103,13 @@ Feedback-Platform/
 ## Setup & Run Locally
 
 ```bash
+Prerequisites
+Node.js (v22.17.1)
+npm (comes with Node.js)
+MongoDB (local or cloud instance)
+```
+
+```bash
 git clone https://github.com/saimjawed254/AYNA-AI-ASSIGNMENT.git
 cd AYNA-AI-ASSIGNMENT
 ```
