@@ -1,5 +1,3 @@
-# Feedback Collection Platform
-
 A full-stack Feedback Collection Platform built with the MERN stack (MongoDB, Express, React, Node.js). Allows businesses (admins) to create customizable feedback forms and customers to submit responses via a public URL.
 
 ---
@@ -176,6 +174,16 @@ Use these test forms to validate functionality:
 * **Form Builder UX:** Real-time preview of the form while building
 * **Analytics & Export:** CSV download + Chart.js visualizations
 * **Desktop-first CSS + Mobile Responsive Design**: Ensures smooth experience across devices
+
+---
+
+##📸 Screenshots
+
+<img width="1919" height="1018" alt="Screenshot 2025-07-18 021506" src="https://github.com/user-attachments/assets/d1a5e321-00e9-4d96-94f9-7926f3c05d80" />
+<img width="1919" height="1016" alt="Screenshot 2025-07-18 021624" src="https://github.com/user-attachments/assets/46c157dd-e8f0-4ba9-a219-48785600703b" />
+<img width="1919" height="1018" alt="Screenshot 2025-07-18 021655" src="https://github.com/user-attachments/assets/18d02ed5-baf4-47a3-955e-4c9fe7753798" />
+<img width="1919" height="1013" alt="Screenshot 2025-07-18 022116" src="https://github.com/user-attachments/assets/82dc2c61-c60b-4efc-bb07-1256d4101fc5" />
+<img width="1919" height="1013" alt="Screenshot 2025-07-18 022154" src="https://github.com/user-attachments/assets/a83e98cc-2c9f-4d57-9fcc-18d337abb26c" />
 
 ---
 
