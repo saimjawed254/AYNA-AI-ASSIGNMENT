@@ -15,7 +15,7 @@ export default function SubmitSuccess() {
             display:'flex',
             alignItems:'center',
             justifyContent:'center',
-            fontSize:'1.25vw',
+            fontSize:'3vw',
             fontWeight:'600',
             borderRadius:'1vw'
           }} >
