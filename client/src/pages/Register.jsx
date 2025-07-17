@@ -1,7 +1,7 @@
 import { useState } from "react";
 import api from "../utils/api";
-import "../styles/register.mobile.css";
-import "../styles/register.desktop.css";
+import "../styles/login.mobile.css";
+import "../styles/login.desktop.css";
 
 export default function Register() {
     const [email, setEmail] = useState("");
@@ -23,16 +23,51 @@ export default function Register() {
     };
 
     return (
-        <div className="register-container">
-            <form onSubmit={handleSubmit} className="register-box">
-                <h2>Register</h2>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
-                {msg && <p className="success">{msg}</p>}
-                {err && <p className="error">{err}</p>}
-                <button type="submit">Register</button>
-                <p>Already have an account? <a href="/">Login</a></p>
-            </form>
+        <div className="home-container">
+            <div className="login-container">
+                <form onSubmit={handleSubmit} className="login-box">
+                    <div className="login-top">
+                        <div className="login-text">Register on <span className="login-heading">Ayna</span> </div>
+                        <div className="login-text-warning">Welcome! Please enter your registration details to create an account</div>
+                    </div>
+
+                    <input className="login-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required />
+                    <input className="login-password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
+                    {err && <p className="error">{err}</p>}
+                    <button className="login-button" type="submit">Register</button>
+                    <div className="login-register">
+                        <div style={{
+                            display: "flex",
+                            alignItems: "center",
+                            textAlign: "center",
+                            margin: "20px 0"
+                        }}>
+                            <div style={{ flex: 1, height: "1px", backgroundColor: "#ccc" }}></div>
+                            <span style={{ padding: "0 10px", color: "#999", fontWeight: "500" }}>OR</span>
+                            <div style={{ flex: 1, height: "1px", backgroundColor: "#ccc" }}></div>
+                        </div>
+
+                        <p>Already have an account? <a href="/">Login</a></p>
+                    </div>
+                </form>
+            </div>
+            <div className="grid-container">
+                <div className="grid-box"><div className="black-overlay"></div></div>
+                <div className="grid-box">
+                    <div className="grid-box-heading">3X</div>
+                    <div className="grid-box-text">Build dynamic forms 3× faster — with real-time previews, structured responses, and instant share links.</div>
+                </div>
+                <div className="grid-box"><div className="black-overlay"></div></div>
+                <div className="grid-box"><div className="black-overlay"></div></div>
+                <div className="grid-box"><div className="black-overlay"></div></div>
+                <div className="grid-box"><div className="black-overlay"></div></div>
+                <div className="grid-box"><div className="grid-box-heading">Create. Preview. Share.</div></div>
+                <div className="grid-box"><div className="black-overlay"></div></div>
+                <div className="grid-box"><div className="black-overlay"></div></div>
+                <div className="grid-box"><div className="black-overlay"></div></div>
+                <div className="grid-box"><div className="black-overlay"></div></div>
+                <div className="grid-box"><div className="black-overlay"></div></div>
+            </div>
         </div>
     );
 }

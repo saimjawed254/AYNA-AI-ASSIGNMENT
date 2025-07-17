@@ -1,22 +1,264 @@
 @media (min-aspect-ratio: 4/3) {
+  .home-container {
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+
+    display: grid;
+    grid-template-columns: repeat(1fr, 80);
+    grid-template-rows: repeat(1fr, 40);
+    gap: 1vw;
+  }
+
+  .grid-container {
+    grid-row: 2 / span 37;
+    grid-column: 2 / span 50;
+
+    border-radius: 1vw;
+    background: #000;
+
+    display: grid;
+    grid-template-rows: repeat(37, 1fr);
+    grid-template-columns: repeat(50, 1fr);
+    gap: 1vh;
+    border-radius: 1vw;
+  }
+
+  .grid-box {
+    background-color: #008cff;
+    border-radius: 1vw;
+    position: relative;
+  }
+
+  .black-overlay{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    border-radius: 1vw;
+  }
+
+  .black-overlay:hover{
+    background: rgba(0,0,0,0.0);
+  }
+
+  .grid-box-heading{
+    font-size: 4vw;
+    font-weight: 500;
+    color: #fff;
+    line-height: 100%;
+  }
+
+  .grid-box-text{
+    font-size: 1vw;
+    line-height: 100%;
+    color: #fff;
+    font-weight: 300;
+
+  }
+
+  .grid-box:nth-of-type(1) {
+    grid-column: 1 / span 9;
+    grid-row: 1 / span 10;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751371896/pexels-dhanno-25184951_ovq0rz.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .grid-box:nth-of-type(2) {
+    grid-column: 10 / span 15;
+    grid-row: 1 / span 15;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    padding: 0 0 1vw 1vw;
+  }
+  .grid-box:nth-of-type(3) {
+    grid-column: 25 / span 15;
+    grid-row: 1 / span 11;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751371912/suits-me-online-_MrdhhuR26Q-unsplash_eglzfg.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .grid-box:nth-of-type(4) {
+    grid-column: 40 / span 15;
+    grid-row: 1 / span 14;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751364143/pexels-marlonretratos-26964993_cnx3pk.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .grid-box:nth-of-type(5) {
+    grid-column: 1 / span 9;
+    grid-row: 11 / span 15;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751716404/pexels-hgcaoky-82252363-16810983_mi5pcg.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .grid-box:nth-of-type(6) {
+    grid-column: 10 / span 15;
+    grid-row: 16 / span 15;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751371904/shahenaz-india-Yci8aYzkjpk-unsplash_x8oyut.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .grid-box:nth-of-type(7) {
+    grid-column: 25 / span 15;
+    grid-row: 12 / span 15;
+
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    padding: 0 0 1vw 1vw;
+
+    background: #f55e00;
+  }
+
+  .grid-box:nth-of-type(8) {
+    grid-column: 40 / span 15;
+    grid-row: 15 / span 15;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751364138/pexels-jonathan-valdes-286676880-21050240_nko6ls.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .grid-box:nth-of-type(9) {
+    grid-column: 1 / span 9;
+    grid-row: 26 / span 15;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751371870/pexels-dhanno-29460545_m9uqgx.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .grid-box:nth-of-type(10) {
+    grid-column: 10 / span 15;
+    grid-row: 31 / span 10;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751364134/pexels-addy-bronzzz-264850064-19461557_hxlppt.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .grid-box:nth-of-type(11) {
+    grid-column: 25 / span 15;
+    grid-row: 27 / span 14;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751371868/pexels-dhanno-20614174_msneos.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .grid-box:nth-of-type(12) {
+    grid-column: 40 / span 15;
+    grid-row: 30 / span 11;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751716341/pexels-quang-viet-nguyen-107013384-11716437_1_tqckww.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
   .login-container {
+    grid-row: 2 / span 38;
+    grid-column: 51 / span 29;
+
+    padding: 5vw;
+    border-radius: 1vw;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-color: #e6f7ff;
   }
 
   .login-box {
-    width: 30vw; /* relative to viewport width */
-    max-width: 40rem; /* optional fallback */
-    padding: 4vh 3vw; /* vertical and horizontal padding */
-    border-radius: 1vh;
-    box-shadow: 0 0 1vh rgba(0, 0, 0, 0.1);
-    background: white;
+    width: 25vw;
+    border-radius: 1vw;
+    height: 70%;
     display: flex;
     flex-direction: column;
-    gap: 2vh;
+    align-items: center;
+    gap: 1vw;
+  }
+
+  .login-top {
+    width: 25vw;
+    height: 15vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+  }
+
+  .login-text {
+    width: 20vw;
+    text-align: center;
+    font-size: 2vw;
+    font-weight: 500;
+  }
+
+  .login-heading {
+    background: linear-gradient(90deg, #008cff, #00e0ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .login-text-warning {
+    font-size: 1vw;
+    text-align: center;
+  }
+
+  .login-email {
+    width: 25vw;
+    height: 6vh;
+
+    padding-left: 1vw;
+    margin-top: 1vh;
+    font-size: 1vw;
+    border: 0.3vh solid #008cff;
+    border-radius: 0.5vw;
+  }
+
+  .login-password {
+    width: 25vw;
+    height: 6vh;
+
+    padding-left: 1vw;
+    margin-top: 1vh;
+    font-size: 1vw;
+    border: 0.3vh solid #008cff;
+    border-radius: 0.5vw;
+  }
+
+  .login-button {
+    width: 25vw;
+    height: 6vh;
+    border-radius: 0.5vw;
+
+    font-size: 1vw;
+    margin-top: 1vh;
+
+    color: #fff;
+    background: linear-gradient(90deg, #008cff, #00e0ff);
+  }
+
+  .login-register {
+    font-size: 1vw;
+    text-align: center;
+  }
+
+  .login-register a {
+    color: #008cff;
   }
 }
