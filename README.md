@@ -109,7 +109,7 @@ Feedback-Platform/
 cd server
 npm install
 # Remember to set values in .env. I have sent the envs in the Remarks section of the Submission form
-npm run dev
+npm run start
 ```
 
 ### Frontend
