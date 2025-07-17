@@ -45,7 +45,6 @@ export default function FormDetail() {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
-            // remove it from local state
             setResponses(responses.filter((r) => r._id !== responseId));
         } catch (err) {
             alert("Failed to delete response");
@@ -54,31 +53,25 @@ export default function FormDetail() {
     };
 
     const downloadCSV = () => {
-
-        console.log(responses)
         if (responses?.length === 0 || questions?.length === 0) {
             alert("No data to export.");
             return;
         }
 
-        // 1. Generate headers
         const headers = questions.map((q, i) => `Q${i + 1}: ${q.question}`);
         headers.push("Submitted At");
 
-        // 2. Generate rows
         const rows = responses.map((r) => {
             const row = [...r.answers];
             row.push(new Date(r.submittedAt).toLocaleString());
             return row;
         });
 
-        // 3. Combine into CSV string
         const csvContent = [
             headers.join(","),
             ...rows.map((r) => r.map((cell) => `"${cell}"`).join(","))
         ].join("\n");
 
-        // 4. Trigger download
         const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
@@ -88,48 +81,96 @@ export default function FormDetail() {
 
     return (
         <div className="form-detail-container">
-            <h2>{formTitle}</h2>
-            <p>Total Responses: {responses.length}</p>
+            <div className="stats-sidebar">
+                <div className="stats-sidebar-box">
+                    <div className="stats-sidebar-box-content">
+                        <div className="stats-sidebar-box-heading">Total Responses</div>
+                        <div className="stats-sidebar-box-number">{responses.length}</div>
+                        <div className="stats-sidebar-box-text">Your data is secure in our database</div>
+                    </div>
+                </div>
+                <div className="stats-sidebar-box">
+                    <div className="stats-sidebar-box-content">
+                        <div className="stats-sidebar-box-heading">Total Responses</div>
+                        <div className="stats-sidebar-box-number">{responses.length}</div>
+                        <div className="stats-sidebar-box-text">Your data is secure in our database</div>
+                    </div>
+                </div>
+                <div className="stats-sidebar-box">
+                    <div className="stats-sidebar-box-content">
+                        <div className="stats-sidebar-box-heading">Total Responses</div>
+                        <div className="stats-sidebar-box-number">{responses.length}</div>
+                        <div className="stats-sidebar-box-text">Your data is secure in our database</div>
+                    </div>
+                </div>
+                <div className="stats-sidebar-box">
+                    <div className="stats-sidebar-box-content">
+                        <div className="stats-sidebar-box-heading">Total Responses</div>
+                        <div className="stats-sidebar-box-number">{responses.length}</div>
+                        <div className="stats-sidebar-box-text">Your data is secure in our database</div>
+                    </div>
+                </div>
+            </div>
 
-            <div className="summary-section">
-                <h3>Summary (MCQs)</h3>
-                {summary?.length === 0 && <p>No MCQs in this form.</p>}
-                {summary?.map((q, i) => (
-                    <div key={i} className="summary-card">
-                        <strong>{q.question}</strong>
-                        <ul>
-                            {Object.entries(q.stats).map(([opt, count], idx) => (
-                                <li key={idx}>{opt}: {count}</li>
+            <div className="view-title">
+                <div style={{
+                    width:"82.5%"
+                }}>
+                    {formTitle}
+                </div>
+                <button onClick={downloadCSV} className="csv-btn">
+                    📤 Export to CSV
+                </button>
+            </div>
+
+            <div className="tabular">
+                <table className="tabular-table">
+                    <thead>
+                        <tr>
+                            <th>Response Id</th>
+                            {questions.map((q, i) => (
+                                <th key={i}>Q{i + 1}</th>
                             ))}
-                        </ul>
-                    </div>
-                ))}
-            </div>
-            <button onClick={downloadCSV} className="csv-btn">
-                📤 Download CSV
-            </button>
-            <div className="responses-section">
-                <h3>Raw Responses</h3>
-                {responses.map((r, i) => (
-                    <div key={r._id} className="response-card">
-                        {r.answers.map((ans, idx) => (
-                            <p key={idx}>
-                                <strong>Q{idx + 1}:</strong> {ans}
-                            </p>
+                            <th>Submitted&nbsp;At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {responses.map((r) => (
+                            <tr key={r._id}>
+                                <td>{r._id}</td>
+                                {r.answers.map((ans, idx) => (
+                                    <td key={idx}>{ans}</td>
+                                ))}
+                                <td>{new Date(r.submittedAt).toLocaleString()}</td>
+                                <td>
+                                    <button
+                                        onClick={() => handleDeleteResponse(r._id)}
+                                        style={{
+                                            color: "white",
+                                            backgroundColor: "red",
+                                            border: "none",
+                                            padding: "0.3vw 1vw",
+                                            borderRadius: "5vw"
+                                        }}
+                                    >
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>
                         ))}
-                        <small>Submitted: {new Date(r.submittedAt).toLocaleString()}</small>
-
-                        {/* 🗑 Delete Button */}
-                        <button
-                            style={{ marginTop: "0.5rem", color: "white", backgroundColor: "red", border: "none", padding: "6px", borderRadius: "4px" }}
-                            onClick={() => handleDeleteResponse(r._id)}
-                        >
-                            Delete Response
-                        </button>
-                    </div>
-                ))}
-
+                    </tbody>
+                </table>
             </div>
+
+            <div className="raw">
+                <div className="raw-header">Raw JSON Data</div>
+                <pre style={{ background: "none", padding: "1vw", overflowX: "auto" }}>
+                    {JSON.stringify(responses, null, 2)}
+                </pre>
+            </div>
+
+
         </div>
     );
 }

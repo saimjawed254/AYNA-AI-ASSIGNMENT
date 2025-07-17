@@ -1,35 +1,177 @@
 @media (min-aspect-ratio: 4/3) {
   .form-detail-container {
-    padding: 4vh 5vw;
+    height: 100vh;
+    width: 100vw;
+
+    display: grid;
+    grid-template-columns: repeat(80, 1fr);
+    grid-template-rows: repeat(40, 1fr);
   }
 
-  .summary-section,
-  .responses-section {
-    margin-top: 4vh;
+  .stats-sidebar {
+    margin: 1vw;
+    grid-row: 1 / span 40;
+    grid-column: 1 / span 20;
+    background: #f0f1fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vw;
+    border-radius: 1vw;
+    overflow: hidden;
+    position: relative;
   }
 
-  .summary-card,
-  .response-card {
-    background: #ffffff;
-    padding: 3vh 3vw;
-    border: 0.2vh solid #ddd;
-    margin-bottom: 3vh;
-    border-radius: 1.2vh;
+  .stats-sidebar-box:nth-of-type(1) {
+    width: 90%;
+    height: 22%;
+    background: linear-gradient(-155deg, #008cff, #00e0ff);
+    border-radius: 1vw;
+    color: #fff;
   }
 
-  .summary-card ul,
-  .response-card ul {
-    margin-top: 1.5vh;
-    padding-left: 2vw;
-  }
-}
+  .stats-sidebar-box {
+    width: 90%;
+    height: 22%;
+    background: #fff;
+    border-radius: 1vw;
+    position: relative;
 
-.csv-btn {
-  margin-bottom: 1rem;
-  padding: 10px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+    overflow: hidden;
+  }
+
+  .stats-sidebar-box-content {
+    padding: 1vw;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .stats-sidebar-box-heading {
+    font-size: 1.25vw;
+    font-weight: 500;
+  }
+
+  .stats-sidebar-box-number {
+    font-size: 2.5vw;
+    font-weight: 500;
+  }
+
+  .stats-sidebar-box-text {
+    font-size: 0.875vw;
+    font-weight: 500;
+  }
+
+  .view-title {
+    margin: 1vw;
+    grid-row: 1 / span 6;
+    grid-column: 20 / span 61;
+    background: #f0f1fa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1vw;
+    padding: 1vw 2vw 1vw 2vw;
+    border-radius: 1vw;
+    overflow-y: scroll;
+    position: relative;
+
+    color: #008cff;
+    font-size: 1.25vw;
+    font-weight: 500;
+  }
+
+  .view-title::-webkit-scrollbar {
+    display: none;
+  }
+
+  .csv-btn {
+    margin-top: 1vw;
+    width: 17.5%;
+    height: 6vh;
+    background: linear-gradient(90deg, #00a846, #64dd17);
+
+    color: white;
+
+    font-size: 1vw;
+    border: none;
+    border-radius: 5vw;
+    cursor: pointer;
+  }
+
+  .tabular {
+    padding: 1vw 2vw 1vw 2vw;
+    margin: 1vw;
+    grid-row: 6 / span 20;
+    grid-column: 20 / span 61;
+    background: #f0f1fa;
+    border-radius: 1vw;
+    position: relative;
+    overflow: scroll;
+  }
+
+  .tabular-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875vw;
+    overflow: scroll;
+  }
+
+  .tabular-table th {
+    padding: 1vw 1vw;
+    text-align: left;
+    border-bottom: 1px solid #808080;
+  }
+
+  .tabular-table td {
+    padding: 0.5vw 1vw;
+    text-align: left;
+    border-bottom: 1px solid #808080;
+  }
+
+  .tabular-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .tabular-table tbody tr:hover {
+    background-color: #fff;
+  }
+
+  /* Optional: Style the delete button consistently */
+  .tabular-table button {
+    color: white;
+    background-color: #e63946;
+    border: none;
+    padding: 0.5vh 1vw;
+    border-radius: 0.4vw;
+    cursor: pointer;
+    font-size: 0.9vw;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .tabular-table button:hover {
+    background-color: #c62828;
+  }
+
+  .raw {
+    margin: 1vw;
+    padding: 1vw 2vw 1vw 2vw;
+
+    grid-row: 25 / span 16;
+    grid-column: 20 / span 61;
+    background: #f0f1fa;
+    border-radius: 1vw;
+    position: relative;
+    overflow-y: scroll;
+  }
+
+  .raw-header {
+    font-size: 1vw;
+    font-weight: 600;
+  }
 }
