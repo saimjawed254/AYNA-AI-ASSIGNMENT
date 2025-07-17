@@ -1,23 +1,215 @@
 @media (max-aspect-ratio: 3/4) {
   .form-detail-container {
-    padding: 4vw;
+    height: 100vh;
+    width: 100vw;
+
+    display: grid;
+    grid-template-rows: repeat(80, 1fr);
+    grid-template-columns: repeat(40, 1fr);
   }
 
-  .summary-card,
-  .response-card {
-    background: #f5f5f5;
-    padding: 4vw;
-    margin-bottom: 4vw;
-    border-radius: 2vw;
-  }
-}
+  .stats-sidebar {
+    margin: 0vh 1vh 0vh 1vh;
+    grid-row: 6 / span 20;
+    grid-column: 1 / span 40;
+    background: #f0f1fa;
 
-.csv-btn {
-  margin-bottom: 1rem;
-  padding: 10px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+    border-radius: 1vh;
+    padding: 1vh;
+
+    overflow: hidden;
+    position: relative;
+  }
+
+  .stats-sidebar-box:nth-of-type(1) {
+    flex-shrink: 1;
+    width: 49%;
+    height: 28%;
+    background: linear-gradient(-155deg, #008cff, #00e0ff);
+    border-radius: 1vh;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+
+    .stats-sidebar-box:nth-of-type(2) {
+    flex-shrink: 1;
+    width: 49%;
+    height: 28%;
+    background: #fff;
+    border-radius: 1vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+    .stats-sidebar-box:nth-of-type(3) {
+    flex-shrink: 1;
+    width: 49%;
+    height: 68%;
+    background: #fff;
+    border-radius: 1vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+    .stats-sidebar-box:nth-of-type(4) {
+    flex-shrink: 1;
+    width: 49%;
+    height: 68%;
+    background: #fff;
+    border-radius: 1vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .stats-sidebar-box-content {
+    padding: 1vh;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+
+  .stats-sidebar-box-heading {
+    flex-shrink: 1;
+    width: 70%;
+    font-size: 1.5vh;
+    font-weight: 500;
+  }
+
+  .stats-sidebar-box-number {
+    flex-shrink: 1;
+    width: 30%;
+    font-size: 1.5vh;
+    font-weight: 500;
+  }
+
+  .stats-sidebar-box-text {
+    flex-shrink: 1;
+    width: 100%;
+    font-size: 0.875vh;
+    font-weight: 500;
+  }
+
+  .view-title {
+    margin: 1vh;
+    grid-row: 1 / span 5;
+    grid-column: 1 / span 40;
+    background: #f0f1fa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1vh;
+    padding: 1vh 2vh 1vh 2vh;
+    border-radius: 1vh;
+    overflow-y: scroll;
+    position: relative;
+
+    color: #008cff;
+    font-size: 1.25vh;
+    font-weight: 500;
+  }
+
+  .view-title::-webkit-scrollbar {
+    display: none;
+  }
+
+  .csv-btn {
+    width: 35%;
+    height: 6vw;
+    background: linear-gradient(90deg, #00a846, #64dd17);
+
+    color: white;
+
+    font-size: 1vh;
+    border: none;
+    border-radius: 5vh;
+    cursor: pointer;
+  }
+
+  .tabular {
+    padding: 0vh 2vh 1vh 2vh;
+    margin: 1vh;
+    grid-row: 26 / span 30;
+    grid-column: 1 / span 40;
+    background: #f0f1fa;
+    border-radius: 1vh;
+    position: relative;
+    overflow: scroll;
+  }
+
+  .tabular-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875vh;
+  }
+
+  .tabular-table th {
+    padding: 2vh 1vh 1vh 1vh;
+    max-width: 30vw;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: left;
+    background-color: #f0f1fa;
+    border-bottom: 1px solid #808080;
+  }
+
+  .tabular-table td {
+    padding: 0.5vh 1vh;
+    max-width: 30vh;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: left;
+    border-bottom: 1px solid #808080;
+  }
+
+  .tabular-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .tabular-table tbody tr:hover {
+    background-color: #fff;
+  }
+
+  .tabular-table button {
+    color: white;
+    background-color: #e63946;
+    border: none;
+    padding: 0.5vh 2vh;
+    border-radius: 0.4vh;
+    cursor: pointer;
+    font-size: 0.9vh;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .tabular-table button:hover {
+    background-color: #c62828;
+  }
+
+  .raw {
+    margin: 1vh;
+    padding: 1vh 2vh 1vh 2vh;
+
+    grid-row: 55 / span 26;
+    grid-column: 1 / span 40;
+    background: #f0f1fa;
+    border-radius: 1vh;
+    position: relative;
+    overflow-y: scroll;
+  }
+
+  .raw-header {
+    font-size: 1vh;
+    font-weight: 600;
+  }
 }

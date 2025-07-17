@@ -129,6 +129,18 @@
     border-radius: 0.5vw;
   }
 
+  .mcq-option {
+    gap: 2vw;
+  }
+
+  .option-delete {
+    background: none;
+    position: relative;
+    top: 0.5vw;
+    color: red;
+    transform: scale(2.5);
+  }
+
   .addoption-button {
     width: 25vw;
     height: 6vh;
@@ -214,6 +226,21 @@
 
     font-size: 1.25vw;
     font-weight: 500;
+    margin-top: 1vw;
+  }
+
+  .mcq-preview {
+    width: 30vw;
+    padding: 0 1vw 0 1vw;
+  }
+
+    .mcq-preview li {
+    font-size: 1vw;
+    margin-top: 0.5vw;
+  }
+
+  .text-preview {
+    font-size: 1vw;
     margin-top: 1vw;
   }
 }

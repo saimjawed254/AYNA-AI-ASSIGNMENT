@@ -122,7 +122,7 @@ export default function CreateForm() {
                             {newQType === "mcq" && (
                                 <div className="mcq-options">
                                     {mcqOptions.map((opt, idx) => (
-                                        <div key={idx} style={{ display: "flex", alignItems: "center", gap: "2vw" }}>
+                                        <div className="mcq-option" key={idx} style={{ display: "flex", alignItems: "center" }}>
                                             <input
                                                 value={opt}
                                                 onChange={(e) => handleOptionChange(e.target.value, idx)}
@@ -130,15 +130,8 @@ export default function CreateForm() {
                                                 style={{ flex: 1 }}
                                             />
                                             {mcqOptions.length > 1 && (
-                                                <button
+                                                <button className="option-delete"
                                                     onClick={() => handleDeleteOption(idx)}
-                                                    style={{
-                                                        background: 'none',
-                                                        position: 'relative',
-                                                        top: '0.5vw',
-                                                        color: 'red',
-                                                        transform: 'scale(2.5)',
-                                                    }}
                                                     title="Delete option"
                                                 >
                                                     <FaDeleteLeft />
@@ -182,21 +175,13 @@ export default function CreateForm() {
                                 </div>
 
                                 {q.type === "mcq" && (
-                                    <ul style={{
-                                        padding:"0 1vw 0 1vw"
-                                    }}>
+                                    <ul className="mcq-preview">
                                         {q.options.map((opt, idx) => (
-                                            <li key={idx} style={{
-                                                fontSize: '1vw',
-                                                marginTop: '0.5vw',
-                                            }}> {opt}</li>
+                                            <li key={idx} > {opt}</li>
                                         ))}
                                     </ul>
                                 )}
-                                {q.type === "text" && <p style={{
-                                    fontSize: '1vw',
-                                    marginTop: '1vw',
-                                }}><em>Answer: __________</em></p>}
+                                {q.type === "text" && <p className="text-preview" ><em>Answer: __________</em></p>}
                             </li>
                         ))}
 

@@ -1,18 +1,267 @@
 @media (max-aspect-ratio: 3/4) {
+  .home-container {
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+
+    display: grid;
+    grid-template-columns: repeat(40,1fr);
+    grid-template-rows: repeat(80,1fr);
+    padding-left: 1vh;
+    gap: 1vh;
+  }
+
+  .grid-container {
+    grid-row: 1 / span 80;
+    grid-column: 1 / span 40;
+
+    border-radius: 1vh;
+    background: #000;
+
+    display: grid;
+    grid-template-rows: repeat(80, 1fr);
+    grid-template-columns: repeat(40, 1fr);
+    gap: 1vh;
+  }
+
+  .grid-box {
+    background-color: #008cff;
+    border-radius: 1vh;
+    position: relative;
+  }
+
+  .black-overlay{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    border-radius: 1vh;
+  }
+
+  .black-overlay:hover{
+    background: rgba(0,0,0,0.0);
+  }
+
+  .grid-box-heading{
+    font-size: 4vh;
+    font-weight: 500;
+    color: #fff;
+    line-height: 100%;
+  }
+
+  .grid-box-text{
+    font-size: 1vh;
+    line-height: 100%;
+    color: #fff;
+    font-weight: 300;
+
+  }
+
+  .grid-box:nth-of-type(1) {
+    grid-column: 1 / span 13;
+    grid-row: 1 / span 20;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751371896/pexels-dhanno-25184951_ovq0rz.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .grid-box:nth-of-type(2) {
+    grid-column: 14 / span 13;
+    grid-row: 1 / span 20;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    padding: 1vh 0 1vh 1vh;
+  }
+  .grid-box:nth-of-type(3) {
+    grid-column: 27 / span 13;
+    grid-row: 1 / span 20;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751371912/suits-me-online-_MrdhhuR26Q-unsplash_eglzfg.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .grid-box:nth-of-type(4) {
+    grid-column: 1 / span 13;
+    grid-row: 21 / span 20;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751364143/pexels-marlonretratos-26964993_cnx3pk.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .grid-box:nth-of-type(5) {
+    grid-column: 14 / span 13;
+    grid-row: 21 / span 20;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751716404/pexels-hgcaoky-82252363-16810983_mi5pcg.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .grid-box:nth-of-type(6) {
+    grid-column: 27 / span 13;
+    grid-row: 21 / span 20;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751371904/shahenaz-india-Yci8aYzkjpk-unsplash_x8oyut.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .grid-box:nth-of-type(7) {
+    grid-column: 1 / span 13;
+    grid-row: 41 / span 20;
+
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    padding: 0 0 1vh 1vh;
+
+    background: #f55e00;
+  }
+
+  .grid-box:nth-of-type(8) {
+    grid-column: 14 / span 13;
+    grid-row: 41 / span 20;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751364138/pexels-jonathan-valdes-286676880-21050240_nko6ls.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .grid-box:nth-of-type(9) {
+    grid-column: 27 / span 13;
+    grid-row: 41 / span 20;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751371870/pexels-dhanno-29460545_m9uqgx.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .grid-box:nth-of-type(10) {
+    grid-column: 1 / span 13;
+    grid-row: 61 / span 20;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751364134/pexels-addy-bronzzz-264850064-19461557_hxlppt.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .grid-box:nth-of-type(11) {
+    grid-column: 14 / span 13;
+    grid-row: 61 / span 20;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751371868/pexels-dhanno-20614174_msneos.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .grid-box:nth-of-type(12) {
+    grid-column: 27 / span 13;
+    grid-row: 61 / span 20;
+
+    background-image: url("https://res.cloudinary.com/dnphzsnx7/image/upload/v1751716341/pexels-quang-viet-nguyen-107013384-11716437_1_tqckww.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
   .login-container {
+    grid-row: 15 / span 66;
+    grid-column: 1 / span 39;
+
+    padding: 5vw;
+    border-radius: 2.5vh;
+
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    padding-top: 10vh;
-    background-color: #e6f7ff;
+    align-items: center;
+    background-color: #fff;
+    z-index: 10;
   }
 
   .login-box {
+    width: 95vw;
+    border-radius: 1vh;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+  }
+
+  .login-top {
+    width: 80vw;
+    height: 15vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+  }
+
+  .login-text {
     width: 90vw;
-    padding: 5vw;
-    border-radius: 2vw;
-    gap: 3vh;
-    box-shadow: 0 0 2vw rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 4vh;
+    font-weight: 500;
+  }
+
+  .login-heading {
+    background: linear-gradient(90deg, #008cff, #00e0ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .login-text-warning {
+    font-size: 2vh;
+    text-align: center;
+  }
+
+  .login-email {
+    width: 80vw;
+    height: 6vh;
+
+    padding-left: 2vh;
+    margin-top: 1vh;
+    font-size: 2vh;
+    border: 0.3vw solid #008cff;
+    border-radius: 0.5vh;
+  }
+
+  .login-password {
+    width: 80vw;
+    height: 6vh;
+
+    padding-left: 2vh;
+    margin-top: 1vh;
+    font-size: 2vh;
+    border: 0.3vw solid #008cff;
+    border-radius: 0.5vh;
+  }
+
+  .login-button {
+    width: 80vw;
+    height: 6vh;
+    border-radius: 0.5vh;
+
+    font-size: 2vh;
+    margin-top: 1vh;
+
+    color: #fff;
+    background: linear-gradient(90deg, #008cff, #00e0ff);
+  }
+
+  .login-register {
+    font-size: 2vh;
+    text-align: center;
+  }
+
+  .login-register a {
+    color: #008cff;
   }
 }

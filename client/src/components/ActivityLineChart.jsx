@@ -56,7 +56,7 @@ export default function ActivityLineChart() {
 
   const chartOptions = {
     responsive: true,
-    maintainAspectRatio: false, // allow stretch
+    maintainAspectRatio: false, 
     plugins: {
       legend: { display: false },
     },

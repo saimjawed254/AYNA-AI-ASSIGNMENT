@@ -80,11 +80,7 @@ export default function PublicForm() {
             <form onSubmit={(e) => e.preventDefault()}>
               {form.questions.map((q, i) => (
                 <div key={i} className="form-question">
-                  <label style={{
-                    fontSize: '1.25vw',
-                    fontWeight: '500',
-                    marginTop: '1vw'
-                  }}><span>Q{i + 1}:</span> {q.question}</label>
+                  <label><span>Q{i + 1}:</span> {q.question}</label>
 
                   {q.type === "text" && (
                     <textarea
