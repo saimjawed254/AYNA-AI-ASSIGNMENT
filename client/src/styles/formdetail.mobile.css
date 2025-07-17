@@ -93,7 +93,7 @@
   .stats-sidebar-box-text {
     flex-shrink: 1;
     width: 100%;
-    font-size: 0.875vh;
+    font-size: 1vh;
     font-weight: 500;
   }
 
@@ -103,16 +103,16 @@
     grid-column: 1 / span 40;
     background: #f0f1fa;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
     gap: 1vh;
     padding: 1vh 2vh 1vh 2vh;
     border-radius: 1vh;
-    overflow-y: scroll;
+    overflow: scroll;
     position: relative;
 
     color: #008cff;
-    font-size: 1.25vh;
+    font-size: 2vh;
     font-weight: 500;
   }
 
@@ -121,13 +121,13 @@
   }
 
   .csv-btn {
-    width: 35%;
+    width: 50%;
     height: 6vw;
     background: linear-gradient(90deg, #00a846, #64dd17);
 
     color: white;
 
-    font-size: 1vh;
+    font-size: 1.5vh;
     border: none;
     border-radius: 5vh;
     cursor: pointer;
@@ -147,7 +147,7 @@
   .tabular-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.875vh;
+    font-size: 1vh;
   }
 
   .tabular-table th {
@@ -183,17 +183,13 @@
 
   .tabular-table button {
     color: white;
-    background-color: #e63946;
+    background-color: red;
     border: none;
-    padding: 0.5vh 2vh;
-    border-radius: 0.4vh;
+    padding: 0.5vh 1vh;
+    border-radius: 5vh;
     cursor: pointer;
     font-size: 0.9vh;
     transition: background-color 0.2s ease-in-out;
-  }
-
-  .tabular-table button:hover {
-    background-color: #c62828;
   }
 
   .raw {

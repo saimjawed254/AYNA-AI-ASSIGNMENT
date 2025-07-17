@@ -103,13 +103,13 @@ export default function FormDetail() {
                 </div>
                 <div className="stats-sidebar-box">
                     <div style={{
-                            color:"#008cff"
-                        }}  className="stats-sidebar-box-content">
+                        color: "#008cff"
+                    }} className="stats-sidebar-box-content">
                         <div className="stats-sidebar-box-heading">Last 24 hours</div>
                         <div className="stats-sidebar-box-number">{last24HourCount}</div>
                         <div style={{
-                            color:"#000"
-                        }}  className="stats-sidebar-box-text">Your form has {last24HourCount} new responses in the last 24 hours</div>
+                            color: "#000"
+                        }} className="stats-sidebar-box-text">Your form has {last24HourCount} new responses in the last 24 hours</div>
                     </div>
                 </div>
                 <div className="stats-sidebar-box">
@@ -153,15 +153,7 @@ export default function FormDetail() {
                                 <td>{new Date(r.submittedAt).toLocaleString()}</td>
                                 <td>
                                     <button
-                                        onClick={() => handleDeleteResponse(r._id)}
-                                        style={{
-                                            color: "white",
-                                            backgroundColor: "red",
-                                            border: "none",
-                                            padding: "0.3vw 1vw",
-                                            borderRadius: "5vw"
-                                        }}
-                                    >
+                                        onClick={() => handleDeleteResponse(r._id)}>
                                         Delete
                                     </button>
                                 </td>
@@ -173,7 +165,7 @@ export default function FormDetail() {
 
             <div className="raw">
                 <div className="raw-header">Raw JSON Data</div>
-                <pre style={{ background: "#fff", padding: "1vw", marginTop:"1vw", overflowX: "auto", borderRadius:'1vw' }}>
+                <pre style={{ background: "#fff", padding: "1vw", marginTop: "1vw", overflowX: "auto", borderRadius: '1vw' }}>
                     {JSON.stringify(responses, null, 2)}
                 </pre>
             </div>
