@@ -117,17 +117,25 @@
     width: 100%;
     border-collapse: collapse;
     font-size: 0.875vw;
-    overflow: scroll;
   }
 
   .tabular-table th {
     padding: 1vw 1vw;
+    max-width: 25vw;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     text-align: left;
+    background: #f0f1fa;
     border-bottom: 1px solid #808080;
   }
 
   .tabular-table td {
     padding: 0.5vw 1vw;
+    max-width: 25vw;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     text-align: left;
     border-bottom: 1px solid #808080;
   }

@@ -29,6 +29,15 @@ export default function PublicForm() {
     fetchForm();
   }, [publicId]);
 
+  useEffect(() => {
+    const el = document.querySelectorAll('.form-textarea');
+    el.forEach((ta) => {
+      ta.style.height = "auto";
+      ta.style.height = ta.scrollHeight + "px";
+    });
+  }, [answers]);
+
+
   const handleChange = (val, idx) => {
     const updated = [...answers];
     updated[idx] = val;
@@ -36,54 +45,105 @@ export default function PublicForm() {
   };
 
   const handleSubmit = async () => {
+    // Check if any answer is empty
+    const isIncomplete = answers.some(ans => ans.trim() === "");
+
+    if (isIncomplete) {
+      alert("Please answer all questions before submitting.");
+      return;
+    }
+
     try {
       await api.post(`/forms/${publicId}/submit`, { answers });
       navigate("/submitted");
     } catch (err) {
-      alert("Submission failed. Please check all answers.");
+      alert("Submission failed. Please try again.");
       console.error(err);
     }
+  };
+
+  const handleClearAll = () => {
+    setAnswers(Array(form.questions.length).fill(""));
   };
 
   if (loading) return <p>Loading form...</p>;
   if (!form) return <p>Form not found</p>;
 
   return (
-    <div className="public-form-container">
-      <h2>{form.title}</h2>
-      <form onSubmit={(e) => e.preventDefault()}>
-        {form.questions.map((q, i) => (
-          <div key={i} className="form-question">
-            <label><strong>Q{i + 1}:</strong> {q.question}</label>
-
-            {q.type === "text" && (
-              <input
-                type="text"
-                value={answers[i]}
-                onChange={(e) => handleChange(e.target.value, i)}
-                required
-              />
-            )}
-
-            {q.type === "mcq" && (
-              <select
-                value={answers[i]}
-                onChange={(e) => handleChange(e.target.value, i)}
-                required
-              >
-                <option value="">-- Select an option --</option>
-                {q.options.map((opt, idx) => (
-                  <option key={idx} value={opt}>{opt}</option>
-                ))}
-              </select>
-            )}
+    <>
+      <div className="public-form">
+        <div className="public-form-container">
+          <div className="public-form-header">Feedback form
+            <span className="public-form-title"><br />{form.title}</span>
           </div>
-        ))}
+          <div className="public-form-content">
+            <form onSubmit={(e) => e.preventDefault()}>
+              {form.questions.map((q, i) => (
+                <div key={i} className="form-question">
+                  <label style={{
+                    fontSize: '1.25vw',
+                    fontWeight: '500',
+                    marginTop: '1vw'
+                  }}><span>Q{i + 1}:</span> {q.question}</label>
 
-        <button className="submit-btn" onClick={handleSubmit}>
-          Submit Response
-        </button>
-      </form>
-    </div>
+                  {q.type === "text" && (
+                    <textarea
+                      value={answers[i]}
+                      onChange={(e) => handleChange(e.target.value, i)}
+                      placeholder="Your answer"
+                      required
+                      className="form-textarea"
+                      rows={1}
+
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" && !e.shiftKey) {
+                          e.preventDefault();
+                        }
+                      }}
+                    />
+
+                  )}
+
+                  {q.type === "mcq" && (
+                    <div className="public-form-mcq-options">
+                      {q.options.map((opt, idx) => (
+                        <label key={idx} className="radio-option">
+                          <input
+                            type="radio"
+                            name={`question-${i}`}
+                            value={opt}
+                            checked={answers[i] === opt}
+                            onChange={() => handleChange(opt, i)}
+                            required
+                          />
+                          <span className="custom-radio"></span>
+                          {opt}
+                        </label>
+                      ))}
+                    </div>
+                  )}
+
+
+                </div>
+              ))}
+              <div className="form-buttons">
+                <button
+                  type="button"
+                  className="clear-btn"
+                  onClick={handleClearAll}
+                >
+                  Clear All
+                </button>
+
+                <button className="submit-btn" onClick={handleSubmit}>
+                  Submit Response
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

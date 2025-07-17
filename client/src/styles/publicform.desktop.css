@@ -1,33 +1,162 @@
 @media (min-aspect-ratio: 4/3) {
+  .public-form {
+    width: 100vw;
+    min-height: 100vh;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 139, 56, 0.4),
+      rgb(238, 9, 121, 0.4)
+    );
+    margin: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .public-form-container {
-    max-width: 45vw;
-    margin: 8vh auto;
-    padding: 4vh 4vw;
-    background: #fafafa;
-    border-radius: 1.2vh;
+    width: 45vw;
+    min-height: 55vh;
+    margin: 2vw;
+    background: linear-gradient(90deg, #ff6a00, #ee0979);
+    border-radius: 1vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .public-form-header {
+    padding: 1vw;
+    width: 98%;
+    font-size: 3vw;
+    font-weight: 500;
+    color: #fff;
+    line-height: 80%;
+    margin-top: 1vw;
+  }
+
+  .public-form-title {
+    padding: 1vw;
+    width: 98%;
+    font-size: 1.5vw;
+    font-weight: 400;
+    color: #fff;
+  }
+
+  .public-form-content {
+    margin-bottom: 0.5vw;
+    width: 45vw;
+    min-height: 20vh;
+    border-radius: 1vw;
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
   }
 
   .form-question {
-    margin-bottom: 4vh;
+    position: relative;
+    width: 44vw;
+    margin: 0.5vw;
+    padding: 0vw 1vw 1.5vw 1vw;
+    background-color: #fff;
+    border-radius: 0.625vw;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
   }
 
-  /* input,
-  select {
-    width: 100%;
-    padding: 2vh 1.5vw;
-    margin-top: 1vh;
-    font-size: 1vw;
-    border: 0.3vh solid #ccc;
-    border-radius: 1vh;
-  } */
+.form-textarea{
+  width: 100%;
+  padding: 1vw 1.5vw 0.5vw 0vw;
+  margin-top: 0.5vw;
+  font-size: 1vw;
+  border: none;
+  border-bottom: 0.3vh solid #ff6a00; 
+  outline: none;
+  background: transparent;
+  transition: border-color 0.3s ease;
+  resize: none;
+}
 
-  .submit-btn {
-    padding: 2.5vh 3vw;
-    background: #28a745;
-    color: white;
-    border: none;
-    border-radius: 1vh;
-    font-size: 1.1vw;
+.form-textarea:focus {
+  border-bottom: 0.3vh solid #ff6a00; 
+}
+
+  .public-form-mcq-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    margin: 1vw 1vw 0 2vw;
+  }
+
+  .radio-option {
+    position: relative;
+    padding-left: 2.5vw;
     cursor: pointer;
+    font-size: 1vw;
+    user-select: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .radio-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .radio-option .custom-radio {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1.5vw;
+    width: 1.5vw;
+    background-color: white;
+    border: 0.2vw solid #ff6a00;
+    border-radius: 50%;
+  }
+
+  .radio-option input[type="radio"]:checked ~ .custom-radio {
+    background-color: #ff6a00;
+    box-shadow: inset 0 0 0 0.3vw white;
+  }
+
+  .form-buttons {
+    position: relative;
+    width: 44vw;
+    margin: 0.5vw;
+    padding: 1.5vw;
+    background-color: #fff;
+    border-radius: 0.625vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .clear-btn {
+    width: 10vw;
+    height: 6vh;
+    border-radius: 0.5vw;
+    float: left;
+    font-size: 1vw;
+    font-weight: 600;
+    background: #fff;
+    color: #ff6a00;
+  }
+  .submit-btn {
+    width: 15vw;
+    height: 6vh;
+    border-radius: 0.5vw;
+    float: right;
+    font-size: 1vw;
+
+    color: #fff;
+    background: linear-gradient(90deg, #ff6a00, #ee0979);
   }
 }
