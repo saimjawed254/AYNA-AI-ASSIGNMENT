@@ -45,7 +45,6 @@ export default function PublicForm() {
   };
 
   const handleSubmit = async () => {
-    // Check if any answer is empty
     const isIncomplete = answers.some(ans => ans.trim() === "");
 
     if (isIncomplete) {
