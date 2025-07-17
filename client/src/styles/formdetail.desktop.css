@@ -103,7 +103,7 @@
   }
 
   .tabular {
-    padding: 1vw 2vw 1vw 2vw;
+    padding: 0vw 2vw 1vw 2vw;
     margin: 1vw;
     grid-row: 6 / span 20;
     grid-column: 20 / span 61;
@@ -120,13 +120,13 @@
   }
 
   .tabular-table th {
-    padding: 1vw 1vw;
+    padding: 2vw 1vw 1vw 1vw;
     max-width: 25vw;
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
     text-align: left;
-    background: #f0f1fa;
+    background-color: #f0f1fa;
     border-bottom: 1px solid #808080;
   }
 

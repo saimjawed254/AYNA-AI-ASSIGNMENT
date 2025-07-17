@@ -5,8 +5,8 @@ import verifyToken from '../middlewares/verifyToken.js';
 const router = express.Router();
 
 router.get('/', verifyToken, getAllFormsForAdmin);
-router.post('/', verifyToken, createForm); // Admin creates form
-router.get('/public/:publicId', getFormByPublicId); // Public access
+router.post('/', verifyToken, createForm); 
+router.get('/public/:publicId', getFormByPublicId); 
 router.post('/:publicId/submit', submitResponse);
 router.get('/:formId/responses', verifyToken, getFormResponses);
 router.delete("/:id", verifyToken, deleteForm);

@@ -16,8 +16,8 @@ export default function FormCard({ form, onDelete }) {
   return (
     <div className="form-card">
       <div onClick={handleClick} className="form-card-item">{form.title}</div>
-      <div className="form-card-item">Title</div>
-      <div className="form-card-item">Title</div>
+      <div className="form-card-item">{form.publicId}</div>
+      <div className="form-card-item">{form.totalResponses}</div>
       <div className="form-card-item">
         <button
           onClick={handleShare}

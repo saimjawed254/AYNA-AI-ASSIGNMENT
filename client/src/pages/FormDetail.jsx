@@ -4,6 +4,8 @@ import api from "../utils/api";
 import { useAuth } from "../context/AuthContext";
 import "../styles/formdetail.mobile.css";
 import "../styles/formdetail.desktop.css";
+import ResponsesLast24HoursChart from "../components/ResponsesLast24HoursChart";
+import ResponsesPerDayChart from "../components/ResponsesPerDayChart";
 
 export default function FormDetail() {
     const { formId } = useParams();
@@ -14,6 +16,16 @@ export default function FormDetail() {
     const [questions, setQuestions] = useState([]);
     const [responses, setResponses] = useState([]);
     const [summary, setSummary] = useState([]);
+    const [last24HourCount, setLast24HourCount] = useState(0);
+
+    useEffect(() => {
+        const now = new Date();
+        const recent = responses.filter((r) => {
+            const submitted = new Date(r.submittedAt);
+            return submitted >= new Date(now.getTime() - 24 * 60 * 60 * 1000);
+        });
+        setLast24HourCount(recent.length);
+    }, [responses]);
 
     useEffect(() => {
         if (!isAuthenticated) navigate("/");
@@ -90,31 +102,27 @@ export default function FormDetail() {
                     </div>
                 </div>
                 <div className="stats-sidebar-box">
-                    <div className="stats-sidebar-box-content">
-                        <div className="stats-sidebar-box-heading">Total Responses</div>
-                        <div className="stats-sidebar-box-number">{responses.length}</div>
-                        <div className="stats-sidebar-box-text">Your data is secure in our database</div>
+                    <div style={{
+                            color:"#008cff"
+                        }}  className="stats-sidebar-box-content">
+                        <div className="stats-sidebar-box-heading">Last 24 hours</div>
+                        <div className="stats-sidebar-box-number">{last24HourCount}</div>
+                        <div style={{
+                            color:"#000"
+                        }}  className="stats-sidebar-box-text">Your form has {last24HourCount} new responses in the last 24 hours</div>
                     </div>
                 </div>
                 <div className="stats-sidebar-box">
-                    <div className="stats-sidebar-box-content">
-                        <div className="stats-sidebar-box-heading">Total Responses</div>
-                        <div className="stats-sidebar-box-number">{responses.length}</div>
-                        <div className="stats-sidebar-box-text">Your data is secure in our database</div>
-                    </div>
+                    <ResponsesPerDayChart responses={responses} formId={formId} />
                 </div>
                 <div className="stats-sidebar-box">
-                    <div className="stats-sidebar-box-content">
-                        <div className="stats-sidebar-box-heading">Total Responses</div>
-                        <div className="stats-sidebar-box-number">{responses.length}</div>
-                        <div className="stats-sidebar-box-text">Your data is secure in our database</div>
-                    </div>
+                    <ResponsesLast24HoursChart responses={responses} formId={formId} />
                 </div>
             </div>
 
             <div className="view-title">
                 <div style={{
-                    width:"82.5%"
+                    width: "82.5%"
                 }}>
                     {formTitle}
                 </div>
@@ -165,7 +173,7 @@ export default function FormDetail() {
 
             <div className="raw">
                 <div className="raw-header">Raw JSON Data</div>
-                <pre style={{ background: "none", padding: "1vw", overflowX: "auto" }}>
+                <pre style={{ background: "#fff", padding: "1vw", marginTop:"1vw", overflowX: "auto", borderRadius:'1vw' }}>
                     {JSON.stringify(responses, null, 2)}
                 </pre>
             </div>

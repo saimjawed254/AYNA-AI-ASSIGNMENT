@@ -6,12 +6,16 @@ import Sidebar from "../components/Sidebar";
 import FormCard from "../components/FormCard";
 import "../styles/dashboard.mobile.css";
 import "../styles/dashboard.desktop.css";
+import ActivityLineChart from "../components/ActivityLineChart";
+import Last24HoursChart from "../components/Last24HoursChart";
 
 export default function Dashboard() {
     const { token, isAuthenticated } = useAuth();
     const navigate = useNavigate();
     const [forms, setForms] = useState([]);
+    const [responses, setResponses] = useState([]);
     const [email, setEmail] = useState("");
+    const [enrichedForms, setEnrichedForms] = useState([]);
 
     useEffect(() => {
         if (!isAuthenticated) {
@@ -33,14 +37,42 @@ export default function Dashboard() {
             }
         };
 
+        const fetchResponses = async () => {
+            try {
+                const res = await api.get("/responses/all-dates", {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+                setResponses(res.data);
+            } catch (err) {
+                console.error("Failed to fetch forms", err);
+            }
+        };
+
         const fetchProfile = () => {
             const payload = JSON.parse(atob(token.split(".")[1]));
             setEmail(payload?.email || "Admin");
         };
 
         fetchForms();
+        fetchResponses();
         fetchProfile();
     }, [token]);
+
+    useEffect(() => {
+        if (forms.length === 0 || responses.length === 0) return;
+
+        const responseMap = new Map();
+        responses.forEach(({ formId }) => {
+            responseMap.set(formId, (responseMap.get(formId) || 0) + 1);
+        });
+
+        const combined = forms.map((form) => ({
+            ...form,
+            totalResponses: responseMap.get(form._id) || 0,
+        }));
+
+        setEnrichedForms(combined);
+    }, [forms, responses]);
 
     const handleDeleteForm = async (formId) => {
         try {
@@ -68,30 +100,22 @@ export default function Dashboard() {
                 <div className="dashboard-box">
                     <div className="dashboard-box-content">
                         <div className="dashboard-box-heading">Total Forms</div>
-                        <div className="dashboard-box-number">24</div>
+                        <div className="dashboard-box-number">{forms.length}</div>
                         <div className="dashboard-box-text">Your data is secure in our database</div>
                     </div>
                 </div>
                 <div className="dashboard-box">
                     <div className="dashboard-box-content">
                         <div className="dashboard-box-heading">Total Responses</div>
-                        <div className="dashboard-box-number">143</div>
+                        <div className="dashboard-box-number">{responses.length}</div>
                         <div className="dashboard-box-text">Click on the respective forms to view the responses</div>
                     </div>
                 </div>
                 <div className="dashboard-box">
-                    <div className="dashboard-box-content">
-                        <div className="dashboard-box-heading">Total Forms</div>
-                        <div className="dashboard-box-number">24</div>
-                        <div className="dashboard-box-text">Your data is secure in our database</div>
-                    </div>
+                    <ActivityLineChart />
                 </div>
                 <div className="dashboard-box">
-                    <div className="dashboard-box-content">
-                        <div className="dashboard-box-heading">Total Forms</div>
-                        <div className="dashboard-box-number">24</div>
-                        <div className="dashboard-box-text">Your data is secure in our database</div>
-                    </div>
+                      <Last24HoursChart />
                 </div>
             </div>
             <div className="dashboard-main">
@@ -103,7 +127,7 @@ export default function Dashboard() {
                     <div className="dashboard-main-header-item">Delete</div>
                 </div>
                 <div className="form-grid">
-                    {forms.map((form) => (
+                    {enrichedForms.map((form) => (
                         <FormCard key={form._id} form={form} onDelete={handleDeleteForm} />
                     ))}
                 </div>

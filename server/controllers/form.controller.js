@@ -83,7 +83,6 @@ export const getFormResponses = async (req, res) => {
       return res.status(403).json({ msg: "Unauthorized access" });
     }
 
-    // Get all responses
     const responses = await Response.find({ formId });
 
     res.status(200).json({
