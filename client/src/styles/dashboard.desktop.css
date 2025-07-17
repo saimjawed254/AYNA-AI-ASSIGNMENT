@@ -261,12 +261,12 @@
 
   .form-card {
     overflow: hidden;
-    width: 98.5%;
-    height: 5vh;
-    padding: 1vw;
+    width: 100%;
+    height: 8vh;
     background: white;
     display: flex;
     align-items: center;
+    position: relative;
   }
 
   .form-card-item {
@@ -276,9 +276,11 @@
     font-size: 1vw;
     font-weight: 500;
     color: #000;
+    position: relative;
   }
 
   .form-card-item:nth-of-type(1) {
+    padding-left: 1vw;
     justify-content: flex-start;
     width: 50%;
     cursor: pointer;
@@ -305,7 +307,7 @@
     background: linear-gradient(-155deg, #008cff, #00e0ff);
     color: #fff;
     width: 75%;
-    height: 100%;
+    height: 70%;
     font-size: 1vw;
     cursor: pointer;
     border-radius: 5vw;
@@ -315,7 +317,7 @@
     background: #ff0000;
     color: #fff;
     width: 75%;
-    height: 100%;
+    height: 70%;
     font-size: 1vw;
     cursor: pointer;
     border-radius: 5vw;

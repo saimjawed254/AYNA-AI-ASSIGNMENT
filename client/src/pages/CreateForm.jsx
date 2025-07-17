@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "../styles/createform.mobile.css";
 import "../styles/createform.desktop.css";
+import { FaDeleteLeft } from "react-icons/fa6";
 
 export default function CreateForm() {
     const navigate = useNavigate();
@@ -30,7 +31,14 @@ export default function CreateForm() {
     };
 
     const handleAddQuestion = () => {
-        if (!newQText.trim()) return;
+        if (!newQType) {
+            alert("Please select a question type before adding.");
+            return;
+        }
+        if (!newQText.trim()) {
+            alert("Please write the question before adding.");
+            return;
+        }
 
         const question = { type: newQType, question: newQText };
         if (newQType === "mcq") question.options = mcqOptions.filter(opt => opt.trim() !== "");
@@ -65,80 +73,136 @@ export default function CreateForm() {
         }
     };
 
+    const handleDeleteOption = (idx) => {
+        const updated = [...mcqOptions];
+        updated.splice(idx, 1);
+        setMcqOptions(updated);
+    };
+
+
     return (
         <div className="create-container">
             <div className="create-builder">
-                <h2>Build Your Form</h2>
+                <div className="create-builder-header">Build your form here
+                </div>
+                <div className="create-builder-text">Real-time forms with zero friction. Built for control, designed for speed.</div>
 
-                <input
-                    type="text"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    placeholder="Enter form title"
-                    className="title-input"
-                />
+                <div className="create-builder-form">
+                    <div className="title-input-text">Enter Title for your form here</div>
+                    <input
+                        type="text"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        placeholder="Enter form title"
+                        className="title-input"
+                    />
 
-                <button onClick={() => setShowBuilder(true)} className="add-btn">+ Add Question</button>
+                    <div className="question-input-text">Add your questions here</div>
 
-                {showBuilder && (
-                    <div className="question-builder">
-                        <select value={newQType} onChange={(e) => setNewQType(e.target.value)}>
-                            <option value="">Select question type</option>
-                            <option value="text">Input (Text)</option>
-                            <option value="mcq">Multiple Choice (Single Answer)</option>
-                        </select>
+                    <button onClick={() => setShowBuilder(true)} className="add-btn">+ Add Question</button>
 
-                        <input
-                            type="text"
-                            value={newQText}
-                            onChange={(e) => setNewQText(e.target.value)}
-                            placeholder="Enter question"
-                        />
+                    {showBuilder && (
+                        <div className="question-builder">
+                            <select className="question-builder-select" value={newQType} onChange={(e) => setNewQType(e.target.value)}>
+                                <option value="" disabled hidden>
+                                    Select question type
+                                </option>
+                                <option value="text">Input (Text)</option>
+                                <option value="mcq">Multiple Choice (Single Answer)</option>
+                            </select>
 
-                        {newQType === "mcq" && (
-                            <div className="mcq-options">
-                                {mcqOptions.map((opt, idx) => (
-                                    <input
-                                        key={idx}
-                                        value={opt}
-                                        onChange={(e) => handleOptionChange(e.target.value, idx)}
-                                        placeholder={`Option ${idx + 1}`}
-                                    />
-                                ))}
-                                <button onClick={handleAddOption}>+ Add Option</button>
-                            </div>
-                        )}
 
-                        <button onClick={handleAddQuestion}>➕ Add to Form</button>
-                    </div>
-                )}
+                            <input className="question-builder-input"
+                                type="text"
+                                value={newQText}
+                                onChange={(e) => setNewQText(e.target.value)}
+                                placeholder="Enter question"
+                            />
 
-                <button onClick={handleSubmit} className="submit-btn">✅ Submit Form</button>
+                            {newQType === "mcq" && (
+                                <div className="mcq-options">
+                                    {mcqOptions.map((opt, idx) => (
+                                        <div key={idx} style={{ display: "flex", alignItems: "center", gap: "2vw" }}>
+                                            <input
+                                                value={opt}
+                                                onChange={(e) => handleOptionChange(e.target.value, idx)}
+                                                placeholder={`Option ${idx + 1}`}
+                                                style={{ flex: 1 }}
+                                            />
+                                            {mcqOptions.length > 1 && (
+                                                <button
+                                                    onClick={() => handleDeleteOption(idx)}
+                                                    style={{
+                                                        background: 'none',
+                                                        position: 'relative',
+                                                        top: '0.5vw',
+                                                        color: 'red',
+                                                        transform: 'scale(2.5)',
+                                                    }}
+                                                    title="Delete option"
+                                                >
+                                                    <FaDeleteLeft />
+                                                </button>
+                                            )}
+                                        </div>
+                                    ))}
+
+                                    <button className="addoption-button" onClick={handleAddOption}>+ Add Option</button>
+                                </div>
+                            )}
+
+                            <button className="addtoform-button" onClick={handleAddQuestion}>+ Add to Form</button>
+                        </div>
+                    )}
+
+                    <button onClick={handleSubmit} className="create-submit-btn">Submit Form</button>
+                </div>
+
             </div>
 
             <div className="create-preview">
-                <h3>Live Preview</h3>
-                <h4>{title || "Form Title"}</h4>
-                <ul>
-                    {questions.map((q, i) => (
-                        <li key={i}>
-                            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                                <strong>Q{i + 1}: {q.question}</strong>
-                                <button onClick={() => handleDeleteQuestion(i)} style={{ color: "red", marginLeft: "1rem" }}>🗑️</button>
-                            </div>
+                <div className="create-preview-header">Live Preview
+                </div>
+                <div className="create-preview-text">{title || "Form Title"}</div>
+                <div className="create-preview-form">
+                    <ul>
+                        {questions.map((q, i) => (
+                            <li key={i}>
+                                <div className="create-preview-question" >
+                                    <span>Q{i + 1}: {q.question}</span>
+                                    <button onClick={() => handleDeleteQuestion(i)} style={{
+                                        color: "red",
+                                        marginLeft: "5vw",
+                                        background: 'none',
+                                        position: 'relative',
+                                        transform: 'scale(2.5)',
+                                    }}>
+                                        <FaDeleteLeft />
+                                    </button>
+                                </div>
 
-                            {q.type === "mcq" && (
-                                <ul>
-                                    {q.options.map((opt, idx) => (
-                                        <li key={idx}>◯ {opt}</li>
-                                    ))}
-                                </ul>
-                            )}
-                            {q.type === "text" && <p><em>Answer: __________</em></p>}
-                        </li>
-                    ))}
+                                {q.type === "mcq" && (
+                                    <ul style={{
+                                        padding:"0 1vw 0 1vw"
+                                    }}>
+                                        {q.options.map((opt, idx) => (
+                                            <li key={idx} style={{
+                                                fontSize: '1vw',
+                                                marginTop: '0.5vw',
+                                            }}> {opt}</li>
+                                        ))}
+                                    </ul>
+                                )}
+                                {q.type === "text" && <p style={{
+                                    fontSize: '1vw',
+                                    marginTop: '1vw',
+                                }}><em>Answer: __________</em></p>}
+                            </li>
+                        ))}
 
-                </ul>
+                    </ul>
+                </div>
+
             </div>
         </div>
     );
