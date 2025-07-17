@@ -44,7 +44,6 @@ export default function CreateForm() {
         if (newQType === "mcq") question.options = mcqOptions.filter(opt => opt.trim() !== "");
 
         setQuestions([...questions, question]);
-        // Reset
         setNewQType("");
         setNewQText("");
         setMcqOptions([""]);

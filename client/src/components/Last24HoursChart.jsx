@@ -20,7 +20,6 @@ export default function Last24HoursChart() {
         const now = new Date();
         const past24Hours = new Date(now.getTime() - 24 * 60 * 60 * 1000);
 
-        // Init 24-hour slots: [ "15:00", "16:00", ..., "14:00" ]
         const hours = Array.from({ length: 24 }, (_, i) => {
           const date = new Date(past24Hours.getTime() + i * 60 * 60 * 1000);
           return `${date.getHours().toString().padStart(2, "0")}:00`;

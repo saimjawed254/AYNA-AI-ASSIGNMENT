@@ -21,7 +21,7 @@ export default function ActivityLineChart() {
 
         const map = new Map();
         raw.forEach(({ submittedAt }) => {
-          const date = new Date(submittedAt).toISOString().split("T")[0]; // YYYY-MM-DD
+          const date = new Date(submittedAt).toISOString().split("T")[0];
           map.set(date, (map.get(date) || 0) + 1);
         });
 

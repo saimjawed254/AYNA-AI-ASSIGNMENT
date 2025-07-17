@@ -22,7 +22,6 @@ export const deleteForm = async (req, res) => {
   try {
     const { id } = req.params;
 
-    // delete associated responses too
     await Response.deleteMany({ formId: id });
     await Form.findByIdAndDelete(id);
 
@@ -76,7 +75,6 @@ export const getFormResponses = async (req, res) => {
   try {
     const formId = req.params.formId;
 
-    // Check if the form belongs to this admin
     const form = await Form.findById(formId);
     if (!form) return res.status(404).json({ msg: "Form not found" });
     if (form.adminId.toString() !== req.adminId) {
