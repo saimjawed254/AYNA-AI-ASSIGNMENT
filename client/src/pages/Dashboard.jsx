@@ -58,10 +58,49 @@ export default function Dashboard() {
     return (
         <div className="dashboard-container">
             <Sidebar email={email} totalForms={forms.length} />
+            <div className="dashboard-header">
+                <div className="dashboard-heading">Dashboard
+                    <span className="dashboard-text"><br />Below is a list of all your forms</span>
+                </div>
+                <a href="/dashboard/create" className="create-btn">+ Create New Form</a>
+            </div>
+            <div className="dashboard-stats">
+                <div className="dashboard-box">
+                    <div className="dashboard-box-content">
+                        <div className="dashboard-box-heading">Total Forms</div>
+                        <div className="dashboard-box-number">24</div>
+                        <div className="dashboard-box-text">Your data is secure in our database</div>
+                    </div>
+                </div>
+                <div className="dashboard-box">
+                    <div className="dashboard-box-content">
+                        <div className="dashboard-box-heading">Total Responses</div>
+                        <div className="dashboard-box-number">143</div>
+                        <div className="dashboard-box-text">Click on the respective forms to view the responses</div>
+                    </div>
+                </div>
+                <div className="dashboard-box">
+                    <div className="dashboard-box-content">
+                        <div className="dashboard-box-heading">Total Forms</div>
+                        <div className="dashboard-box-number">24</div>
+                        <div className="dashboard-box-text">Your data is secure in our database</div>
+                    </div>
+                </div>
+                <div className="dashboard-box">
+                    <div className="dashboard-box-content">
+                        <div className="dashboard-box-heading">Total Forms</div>
+                        <div className="dashboard-box-number">24</div>
+                        <div className="dashboard-box-text">Your data is secure in our database</div>
+                    </div>
+                </div>
+            </div>
             <div className="dashboard-main">
-                <div className="dashboard-header">
-                    <h2>Your Forms</h2>
-                    <a href="/dashboard/create" className="create-btn">+ Create New Form</a>
+                <div className="dashboard-main-header">
+                    <div className="dashboard-main-header-item">Title</div>
+                    <div className="dashboard-main-header-item">Public Id</div>
+                    <div className="dashboard-main-header-item">Responses</div>
+                    <div className="dashboard-main-header-item">Share Link</div>
+                    <div className="dashboard-main-header-item">Delete</div>
                 </div>
                 <div className="form-grid">
                     {forms.map((form) => (

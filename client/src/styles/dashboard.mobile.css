@@ -1,4 +1,4 @@
-@media (max-aspect-ratio: 3/4) {
+/* @media (max-aspect-ratio: 3/4) {
   .dashboard-container {
     display: flex;
     flex-direction: column;
@@ -53,4 +53,4 @@
     border-radius: 2vw;
     font-size: 4vw;
   }
-}
+} */

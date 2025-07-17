@@ -5,8 +5,8 @@
     background: #fff;
 
     display: grid;
-    grid-template-columns: repeat(1fr, 80);
-    grid-template-rows: repeat(1fr, 40);
+    grid-template-columns: repeat(80,1fr);
+    grid-template-rows: repeat(40,1fr);
     gap: 1vw;
   }
 
