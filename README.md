@@ -1,5 +1,6 @@
-A full-stack Feedback Collection Platform built with the MERN stack (MongoDB, Express, React, Node.js). Allows businesses (admins) to create customizable feedback forms and customers to submit responses via a public URL.
-
+This full-stack Feedback Collection Platform was built using the MERN stack with a modular, scalable architecture in mind. The backend is organized using clean MVC principles—separating controllers, routes, and middleware for maintainability. I used JWT authentication with a custom middleware to protect private routes. Routes are grouped by resource (/auth, /forms, /responses) and kept stateless with proper token checks. Each feedback form stores an array of flexible question objects (text or MCQ), and responses are stored in a separate collection for efficient querying and analytics.
+---
+For the frontend, I chose React with Vite for fast build times and used React Context API for global authentication state, enabling consistent token handling across components and protected routes. The form creation interface supports real-time preview, and public form submission is seamless without requiring login. I also implemented Chart.js for hourly and daily insights and added CSV export for raw data access. Separate APIs return response timestamps with form IDs to dynamically compute stats like total responses and recent trends. The layout is fully mobile-responsive, and styles are split cleanly into desktop and mobile CSS files for better control.
 ---
 
 ## 🔑 Demo Admin Account
@@ -100,6 +101,18 @@ Feedback-Platform/
 ---
 
 ## Setup & Run Locally
+
+```bash
+Prerequisites
+Node.js (v22.17.1)
+npm (comes with Node.js)
+MongoDB (local or cloud instance)
+```
+
+```bash
+git clone https://github.com/saimjawed254/AYNA-AI-ASSIGNMENT.git
+cd AYNA-AI-ASSIGNMENT
+```
 
 ### Backend
 
