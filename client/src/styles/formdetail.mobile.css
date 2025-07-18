@@ -153,6 +153,7 @@
   .tabular-table th {
     padding: 2vh 1vh 1vh 1vh;
     max-width: 30vw;
+    min-width: 20vw;
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;
@@ -164,6 +165,7 @@
   .tabular-table td {
     padding: 0.5vh 1vh;
     max-width: 30vh;
+    min-width: 20vw;
     white-space: normal;
     word-wrap: break-word;
     overflow-wrap: break-word;

@@ -40,6 +40,7 @@ export default function FormDetail() {
                 setSummary(res.data.summary);
                 setFormTitle(res.data.title || "Untitled Form");
                 setQuestions(res.data.questions || []);
+                console.log(res.data.questions);
             } catch (err) {
                 console.error("Failed to load form responses", err);
             }
@@ -137,7 +138,7 @@ export default function FormDetail() {
                         <tr>
                             <th>Response Id</th>
                             {questions.map((q, i) => (
-                                <th key={i}>Q{i + 1}</th>
+                                <th key={i}>Q{i + 1} {questions[i].question}</th>
                             ))}
                             <th>Submitted&nbsp;At</th>
                             <th>Action</th>
