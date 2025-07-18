@@ -156,7 +156,7 @@
     margin-top: 1vh;
 
     color: #fff;
-    background: linear-gradient(90deg, #008cff, #00e0ff);
+    background: linear-gradient(90deg, #00a846, #64dd17);
   }
 
   .addtoform-button {
@@ -186,7 +186,7 @@
   .create-preview {
     width: 100vw;
     height: 40vh;
-    background: #f0f1fa;
+    background: linear-gradient(90deg, #ff6a00, #ee0979);
     border-radius: 1vh;
     padding: 1vh;
     padding: 1vh 2vh 1vh 2vh;
@@ -198,10 +198,7 @@
     height: 8%;
     font-size: 2.5vh;
     font-weight: 500;
-    background: linear-gradient(90deg, #ff6a00, #ee0979);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
   }
 
   .create-preview-text {
@@ -210,22 +207,28 @@
     overflow-wrap: break-word;
     margin-top: 1vw;
     font-size: 1.5vh;
-    color: #008cff;
+    color: #fff;
+    font-weight: 500;
   }
 
   .create-preview-form {
-    margin-top: 3vh;
-    margin-bottom: 3vh;
     padding: 2vh;
     border-radius: 1vh;
     width: 100%;
     height: auto;
-    background-color: #fff;
     position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
+  }
+
+  .preview-ques {
+    background-color: #fff;
+    width: 90vw;
+    padding: 2vh;
+    margin: 1vh;
+    border-radius: 1vh;
   }
 
   .create-preview-question {
@@ -243,10 +246,11 @@
     padding: 0 1vh 0 1vh;
   }
 
-  .mcq-preview li {
+  .mcq-preview div {
     font-size: 1.25vh;
     margin-top: 0.5vh;
   }
+
 
   .text-preview {
     width: 75vw;

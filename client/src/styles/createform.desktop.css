@@ -150,7 +150,7 @@
     margin-top: 1vw;
 
     color: #fff;
-    background: linear-gradient(90deg, #008cff, #00e0ff);
+    background: linear-gradient(90deg, #00a846, #64dd17);
   }
 
   .addtoform-button {
@@ -181,6 +181,7 @@
     width: 46vw;
     height: 90vh;
     background: #f0f1fa;
+    background: linear-gradient(90deg, #ff6a00, #ee0979);
     border-radius: 1vw;
     padding: 1vw;
     padding: 1vw 2vw 1vw 2vw;
@@ -192,26 +193,21 @@
     height: 8%;
     font-size: 2vw;
     font-weight: 500;
-    background: linear-gradient(90deg, #ff6a00, #ee0979);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #fff;
   }
 
   .create-preview-text {
     font-size: 1.25vw;
-    color: #008cff;
+    color: #fff;
+    font-weight: 500;
   }
 
   .create-preview-form {
-    margin-top: 3vw;
-    margin-bottom: 3vw;
     margin-left: 5%;
     padding: 2vw;
     border-radius: 1vw;
     width: 90%;
     height: auto;
-    background-color: #fff;
     position: relative;
     display: flex;
     align-items: center;
@@ -219,14 +215,22 @@
     justify-content: space-around;
   }
 
+  .preview-ques {
+    background-color: #fff;
+    width: 40vw;
+    padding: 2vw;
+    margin: 1vw;
+    border-radius: 1vw;
+  }
+
   .create-preview-question {
+    width: 36vw;
     display: flex;
     align-self: center;
     justify-content: space-between;
 
     font-size: 1.25vw;
     font-weight: 500;
-    margin-top: 1vw;
   }
 
   .mcq-preview {
@@ -234,7 +238,7 @@
     padding: 0 1vw 0 1vw;
   }
 
-    .mcq-preview li {
+  .mcq-preview div {
     font-size: 1vw;
     margin-top: 0.5vw;
   }

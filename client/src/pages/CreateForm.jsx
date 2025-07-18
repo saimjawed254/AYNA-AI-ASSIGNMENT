@@ -157,34 +157,41 @@ export default function CreateForm() {
                 </div>
                 <div className="create-preview-text">{title || "Form Title"}</div>
                 <div className="create-preview-form">
-                    <ul>
+                    <div>
                         {questions.map((q, i) => (
-                            <li key={i}>
-                                <div className="create-preview-question" >
+                            <div className="preview-ques" key={i}>
+                                <div className="create-preview-question">
                                     <span>Q{i + 1}: {q.question}</span>
-                                    <button onClick={() => handleDeleteQuestion(i)} style={{
-                                        color: "red",
-                                        marginLeft: "5vw",
-                                        background: 'none',
-                                        position: 'relative',
-                                        transform: 'scale(2.5)',
-                                    }}>
+                                    <button
+                                        onClick={() => handleDeleteQuestion(i)}
+                                        style={{
+                                            color: "red",
+                                            marginLeft: "5vw",
+                                            background: 'none',
+                                            position: 'relative',
+                                            transform: 'scale(2.5)',
+                                        }}
+                                    >
                                         <FaDeleteLeft />
                                     </button>
                                 </div>
 
                                 {q.type === "mcq" && (
-                                    <ul className="mcq-preview">
+                                    <div className="mcq-preview">
                                         {q.options.map((opt, idx) => (
-                                            <li key={idx} > {opt}</li>
+                                            <div key={idx}>◯&nbsp;{opt}</div>
                                         ))}
-                                    </ul>
+                                    </div>
                                 )}
-                                {q.type === "text" && <p className="text-preview" ><em>Answer: __________</em></p>}
-                            </li>
+                                {q.type === "text" && (
+                                    <p className="text-preview">
+                                        <em>Answer: __________</em>
+                                    </p>
+                                )}
+                            </div>
                         ))}
+                    </div>
 
-                    </ul>
                 </div>
 
             </div>
