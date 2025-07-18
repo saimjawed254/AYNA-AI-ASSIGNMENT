@@ -7,10 +7,28 @@ export default function FormCard({ form, onDelete }) {
     navigate(`/dashboard/form/${form._id}`);
   };
 
-  const handleShare = () => {
-    const link = `${window.location.origin}/form/${form.publicId}`;
-    navigator.clipboard.writeText(link);
-    alert("Link copied to clipboard!");
+  const handleShare = async () => {
+    const shareData = {
+      title: `Fill this form out!`,
+      text: `${form.title}`,
+      url: `${window.location.origin}/form/${form.publicId}`,
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        console.log("Shared successfully");
+      } catch (err) {
+        console.error("Share failed:", err);
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(shareData.url);
+        alert("Link copied to clipboard!");
+      } catch (err) {
+        console.error("Clipboard copy failed:", err);
+      }
+    }
   };
 
   return (
